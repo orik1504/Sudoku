@@ -173,8 +173,8 @@ class SmartSuduko(SudokuTable):
         super().set(row, col, value)
 
         if not self.check_cell(row, col):
-            raise ValueError("Value can't make the board valid")
             super().set(row, col, temp)
+            raise ValueError(f"The value {value} is not allowed in this cell")
 
 
 if __name__ == "__main__":

@@ -147,6 +147,19 @@ class SudokuTable:
     def check(self,) -> bool:
         return self.check_rows() and self.check_cols() and self.check_blocks()
 
+    def check_cell(self, row: int, col: int) -> bool:
+        """ Makes only three check operations, to check if the given cell
+        is valid or not. """
+
+        block_row = ((row - 1) // self._block_size) + 1
+        block_col = ((col - 1) // self._block_size) + 1
+
+        return (
+            self.check_row(row) and
+            self.check_col(col) and
+            self.check_block(block_row, block_col)
+        )
+
 
 if __name__ == "__main__":
     table = SudokuTable(3)

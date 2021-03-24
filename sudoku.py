@@ -102,7 +102,7 @@ class SudokuTable:
 
     def check_col(self, col: int) -> bool:
         return self.__check_unique_list([
-            row[col]
+            row[col - 1]
             for row in self._table
         ])
 

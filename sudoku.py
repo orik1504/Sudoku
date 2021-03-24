@@ -71,10 +71,10 @@ class SudokuTable:
     def set(self, row: int, col: int, value: int):
         """ Recives a Sudoku cell, and sets its value. """
 
-        if not isinstance(value, int):
-            raise TypeError("Value must be an integer")
+        if not isinstance(value, (int, type(None))):
+            raise TypeError("Value must be an integer (or None)")
 
-        if value < 1 or value > self._size:
+        if isinstance(value, int) and (value < 1 or value > self._size):
             raise ValueError(
                 f"Value must be between 1 and {self._size} (not {value})")
 

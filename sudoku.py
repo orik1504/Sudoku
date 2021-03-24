@@ -95,6 +95,7 @@ class SudokuTable:
     @staticmethod
     def __check_unique_list(to_check: list) -> bool:
         """ Checks if all values in the list are different and unique. """
+        to_check = [item for item in to_check if item is not None]
         return len(set(to_check)) == len(to_check)
 
     def check_row(self, row: int) -> bool:

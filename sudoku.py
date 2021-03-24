@@ -82,7 +82,7 @@ class SudokuTable:
 
     def get(self, row: int, col: int):
         """ Returns the value of the given Sudoku cell. """
-        return self._table[row][col]
+        return self._table[row - 1][col - 1]
 
     def fill_randomly(self,):
         """ Fills the board completly and randomly. It doesn't guarantee that

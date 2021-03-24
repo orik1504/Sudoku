@@ -98,10 +98,10 @@ class SudokuTable:
         return len(set(to_check)) == len(to_check)
 
     def check_row(self, row: int) -> bool:
-        self.__check_unique_list(self._table[row-1])
+        return self.__check_unique_list(self._table[row - 1])
 
     def check_col(self, col: int) -> bool:
-        self.__check_unique_list([
+        return self.__check_unique_list([
             row[col]
             for row in self._table
         ])

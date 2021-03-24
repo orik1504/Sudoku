@@ -161,6 +161,21 @@ class SudokuTable:
         )
 
 
+class SmartSuduko(SudokuTable):
+
+    def safe_set(self, row: int, col: int, value: int):
+        """ Recives a Sudoku cell, and sets its value. Before adding, checks
+        whenever the new insertion is valid, and if it is not, raises an
+        error. """
+
+        temp = self.get(row, col)
+        self.set(row, col, value)
+
+        if not self.check_cell(row, col):
+            self.set(row, col, temp)
+            raise ValueError("Value can't make the board valid")
+
+
 if __name__ == "__main__":
     table = SudokuTable(3)
     table.fill_randomly()
